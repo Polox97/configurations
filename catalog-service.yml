@@ -6,7 +6,7 @@ spring:
       host: catalog-database
       username: catalog
       password: catalog
-      port: 27017
+      port: 27019
       database: catalog_database
   zipkin:
     base-url: http://zipkin-server:9411/
