@@ -7,7 +7,7 @@ spring:
       username: series
       password: series
       port: 27018
-      database: series-database
+      database: series_database
   rabbitmq:
     username: guest
     password: guest
