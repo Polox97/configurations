@@ -1,7 +1,7 @@
 spring:
   application:
     name: catalog-service
-  data:
+    data:
     mongodb:
       host: localhost
       username: catalog
