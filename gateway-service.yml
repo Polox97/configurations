@@ -1,0 +1,50 @@
+spring:
+  main:
+    web-application-type: reactive
+    allow-bean-definition-overriding: true
+  application:
+    name: gateway-service
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 38f5d63bc56d6333aeac
+            clientSecret: 2f444ced9817a7338ed2f7495ce3f0f49335b3d8
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+      routes:
+        - id: movie-service-route
+          uri: lb://movie-service
+          predicates:
+            - Path=/movies/**
+          filters:
+            - TokenRelay
+        - id: catalog-service-route
+          uri: lb://catalog-service
+          predicates:
+            - Path=/catalog/**
+        - id: serie-service-route
+            uri: lb://serie-service
+            predicates:
+              - Path=/series/**
+            filters:
+              - TokenRelay
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+    LeaseExpirationDurationInSeconds: 10

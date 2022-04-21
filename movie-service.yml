@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: movie-service
+  datasource:
+    url: jdbc:mysql://movies-database:3306/movies_database
+    username: root
+    password:
+  sql:
+    init:
+      dataLocations: classpath:/movie-service.sql
+  jpa:
+    deferDatasourceInitialization: true
+    hibernate:
+      ddlAuto: create-drop
+
+server:
+  port: 8091
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+    LeaseExpirationDurationInSeconds: 10

@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: catalog-service
+  data:
+    mongodb:
+      host: localhost
+      username: catalog
+      password: catalog
+      port: 27017
+      database: catalog-database
+    rabbitmq:
+      username: guest
+      password: guest
+      host: localhost
+      port: 5672
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+    LeaseExpirationDurationInSeconds: 10
