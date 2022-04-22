@@ -2,7 +2,7 @@ spring:
   application:
     name: movie-service
   datasource:
-    url: jdbc:mysql://movies-database:3306/movies_database
+    url: jdbc:mysql://movies-database:3307/movies_database
     username: root
     password: mysql
   sql:
